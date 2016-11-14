@@ -25,5 +25,15 @@ public class MainProcras extends PApplet {
 	@Override
 	public void draw() {
 		background(255);
+		log.pantallas();
 	}
+
+	@Override
+	public void mousePressed() {
+		
+		
+		
+	}
+	
+	
 }
