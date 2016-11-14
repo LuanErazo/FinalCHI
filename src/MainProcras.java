@@ -7,7 +7,7 @@ public class MainProcras extends PApplet {
 
 	@Override
 	public void settings() {
-
+		size(1024,600);
 	}
 
 	@Override
@@ -17,6 +17,6 @@ public class MainProcras extends PApplet {
 
 	@Override
 	public void draw() {
-
+		background(255);
 	}
 }
