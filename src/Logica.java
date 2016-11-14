@@ -20,13 +20,19 @@ public class Logica {
 			break;
 			
 		case 2:
-//			app.image(img, a, b);
+			app.image(CargaDatos.registro, 0, 0);
 			break;
 
 		default:
 			break;
 		}
 	
+		
+		
+	}
+	
+	public void click(){
+		
 		
 		
 	}
