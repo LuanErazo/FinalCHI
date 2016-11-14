@@ -2,8 +2,9 @@ import processing.core.PApplet;
 
 public class MainProcras extends PApplet {
 	
-	Logica log;
-	
+	 public Logica log;
+	 public static PApplet app;
+	 
 	public static void main(String[] args) {
 		PApplet.main("MainProcras");
 	}
@@ -16,7 +17,8 @@ public class MainProcras extends PApplet {
 
 	@Override
 	public void setup() {
-		log = new Logica(this);
+		MainProcras.app = this;
+		log = new Logica();
 
 	}
 
