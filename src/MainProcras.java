@@ -8,6 +8,7 @@ public class MainProcras extends PApplet {
 	@Override
 	public void settings() {
 		size(1024,600);
+		//prueba
 	}
 
 	@Override
