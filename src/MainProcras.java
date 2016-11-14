@@ -24,7 +24,7 @@ public class MainProcras extends PApplet {
 
 	@Override
 	public void draw() {
-//		background(255);
+//		background(35,47,65);
 		log.pantallas();
 	}
 
