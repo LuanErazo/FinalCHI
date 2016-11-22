@@ -34,6 +34,14 @@ public class MainProcras extends PApplet {
 		log.click();
 		
 	}
+
+	@Override
+	public void keyPressed() {
+		log.flechas();
+		
+	}
+	
+	
 	
 	
 }
