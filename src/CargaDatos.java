@@ -7,6 +7,8 @@ public class CargaDatos {
 	
 	public static PImage login,registro,regisytoU,loginU;
 	
+	public static PImage dia,evento,menu,mundo,semana,tarea;
+	
 	public CargaDatos() {
 		this.app = MainProcras.app;
 		

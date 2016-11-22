@@ -34,6 +34,11 @@ public class Logica {
 			app.tint(255, 80);
 			app.image(CargaDatos.loginU, 0, 0);
 			break;
+			
+		case 4:
+			app.rect(0, 0, app.width, app.height);
+			
+			break;
 		default:
 			break;
 		}
