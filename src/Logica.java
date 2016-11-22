@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 public class Logica {
 
-	private int pantallas = 4;
+	private int pantallas ;
 	private PApplet app;
 	private CargaDatos datos;
 	private int alphaU = 100;
