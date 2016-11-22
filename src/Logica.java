@@ -109,8 +109,6 @@ public class Logica {
 
 		else if (PApplet.dist(app.mouseX, app.mouseY, 483, 77) < 40 && pantallas == 4) {
 			dia = false;
-
-		
 		}
 
 	}
