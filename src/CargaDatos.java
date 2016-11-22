@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.core.PShape;
 
 public class CargaDatos {
 
@@ -12,6 +13,8 @@ public class CargaDatos {
 	public static PImage bien,medio,mal;
 	
 	public static PImage huevosuper,huevobien,huevomedio,huevomal;
+	
+	public static PShape linea;
 	
 	public CargaDatos() {
 		this.app = MainProcras.app;
@@ -32,9 +35,11 @@ public class CargaDatos {
 		medio = app.loadImage("../data/fondomedio.png");
 		mal = app.loadImage("../data/fondomal.png");
 		
-		huevosuper = app.loadImage("../data/huevoultra.png");
-		huevobien = app.loadImage("../data/huevobien.png");
-		huevomedio = app.loadImage("../data/huevosad.png");
-		huevomal = app.loadImage("../data/huevomalmal.png");
+		huevosuper = app.loadImage("../data/huevo/huevoultra.png");
+		huevobien = app.loadImage("../data/huevo/huevobien.png");
+		huevomedio = app.loadImage("../data/huevo/huevosad.png");
+		huevomal = app.loadImage("../data/huevo/huevomalmal.png");
+		
+		linea = app.loadShape("../data/linea.svg");
 	}
 }
