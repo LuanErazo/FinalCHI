@@ -51,10 +51,8 @@ public class Logica {
 			break;
 
 		case 4:
-
+			app.tint(255, 255);
 			if (fondos == 1) {
-				app.tint(255, 255);
-
 				app.image(CargaDatos.bien, 0, 0);
 			}
 
