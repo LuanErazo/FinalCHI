@@ -163,8 +163,8 @@ public class Logica {
 				huevos = 1;
 			}
 		}
-		if (pantallas == 5) {
-			if (app.keyCode == 8) {
+		if (app.keyCode == 8) {
+			if (pantallas == 5) {
 				pantallas = 4;
 			}
 		}
