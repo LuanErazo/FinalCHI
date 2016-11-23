@@ -15,7 +15,7 @@ public class CargaDatos {
 	
 	public static PImage linea;
 	
-	public static PImage calendarG, calendarR;
+	public static PImage calendarG, calendarR, calendarM;
 	
 	public CargaDatos() {
 		this.app = MainProcras.app;
@@ -45,6 +45,7 @@ public class CargaDatos {
 		
 		calendarG = app.loadImage("../data/calendar/good.png");
 		calendarR = app.loadImage("../data/calendar/regular.png");
+		calendarM = app.loadImage("../data/calendar/malo.png");
 
 	}
 }

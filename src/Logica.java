@@ -84,8 +84,17 @@ public class Logica {
 			break;
 
 		case 5:
-			app.image(CargaDatos.calendarR, 0 - 57, 0);
-
+			if (fondos == 1) {
+				app.image(CargaDatos.calendarG, 0 - 57, 0);
+			}
+			
+			if(fondos==2){
+				app.image(CargaDatos.calendarR, 0 - 57, 0);
+			}
+			
+			if(fondos==3){
+				app.image(CargaDatos.calendarM, 0, 0);
+			}
 			break;
 		default:
 			break;
