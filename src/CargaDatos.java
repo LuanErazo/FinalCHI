@@ -3,7 +3,10 @@ import processing.core.PImage;
 
 public class CargaDatos {
 
-	private PApplet app;
+	public static PApplet app;
+	public static PImage tareas;
+	public static PImage programadoT;
+	public static PImage recomendacionT;
 	
 	public static PImage login,registro,regisytoU,loginU;
 	
@@ -18,6 +21,7 @@ public class CargaDatos {
 	public static PImage calendarG, calendarR, calendarM;
 	
 	public static PImage entrega,programado,recomendacion;
+	public static PImage botonera;
 	
 	public CargaDatos() {
 		this.app = MainProcras.app;
@@ -52,5 +56,12 @@ public class CargaDatos {
 		entrega = app.loadImage("../data/entrega/Entregas.png");
 		programado = app.loadImage("../data/entrega/Programado.png");
 		recomendacion = app.loadImage("../data/entrega/recomendaciones.png");
+		
+		tareas = app.loadImage("../data/tarea/Tareas.png");
+		programadoT = app.loadImage("../data/tarea/Programado Tarea.png");
+		recomendacionT = app.loadImage("../data/tarea/recomendaciones Tarea.png");
+		
+		botonera = app.loadImage("../data/botonera.png");
+
 	}
 }

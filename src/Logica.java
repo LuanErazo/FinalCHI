@@ -10,8 +10,9 @@ public class Logica {
 	private int alphaU;
 	private int fondos, huevos;
 	private PVector posBarra;
-	private float barra, mundoX, mundoY,eventoX,eventoY,imgY;
+	private float barra, mundoX, mundoY, eventoX, eventoY, imgY;
 	private boolean dia;
+	private int imgDosY;
 
 	public Logica() {
 		this.app = MainProcras.app;
@@ -24,12 +25,12 @@ public class Logica {
 		barra = app.width - 80;
 		mundoX = 88;
 		mundoY = 937;
-		
-		imgY=0;
-		
+
+		imgY = 0;
+
 		eventoX = 88;
 		eventoY = 251;
-		
+
 		posBarra = new PVector(barra, 0);
 
 	}
@@ -94,52 +95,89 @@ public class Logica {
 			if (fondos == 1) {
 				app.image(CargaDatos.calendarG, 0 - 57, 0);
 			}
-			
-			if(fondos==2){
+
+			if (fondos == 2) {
 				app.image(CargaDatos.calendarR, 0 - 57, 0);
 			}
-			
-			if(fondos==3){
+
+			if (fondos == 3) {
 				app.image(CargaDatos.calendarM, 0, 0);
 			}
-			
+
 		case 6:
 			app.image(CargaDatos.entrega, 0, imgY);
-			
-			if(app.mouseY>app.height-200){
-				imgY-=4;
-				
-			}
-			if (imgY <= CargaDatos.entrega.height *-1) {
-				imgY = CargaDatos.entrega.height *-1;
-			}
-			
-			if(app.mouseY<200){
-				imgY+=4;
-				if (imgY >= CargaDatos.entrega.height) {
-					imgY = CargaDatos.entrega.height;
-				}
-				
-			}
+			app.imageMode(PConstants.CENTER);
+			app.image(CargaDatos.botonera, app.width / 2, imgY + 1240);
+			app.imageMode(PConstants.CORNER);
+			movImg();
+
 			break;
-			
+
 		case 7:
-			
 			app.image(CargaDatos.recomendacion, 0, 0);
 			break;
-			
+
 		case 8:
 			app.image(CargaDatos.programado, 0, 0);
-			
-			if(app.frameCount%60*4==0){
-				pantallas=4;
+
+			if (app.frameCount % (60 * 4) == 0) {
+				pantallas = 4;
 			}
-			
+			break;
+		case 9:
+			app.image(CargaDatos.tareas, 0, imgDosY);
+			app.imageMode(PConstants.CENTER);
+			app.image(CargaDatos.botonera, app.width / 2, imgDosY + 740);
+			app.imageMode(PConstants.CORNER);
+			movImg();
+			break;
+		case 10:
+			app.image(CargaDatos.recomendacionT, 0, 0);
+
+			break;
+		case 11:
+			app.image(CargaDatos.programadoT, 0, 0);
+			if (app.frameCount % (60 * 4) == 0) {
+				pantallas = 4;
+			}
 			break;
 		default:
 			break;
 		}
+	}
 
+	private void movImg() {
+		if (app.mouseY > app.height - 200) {
+			imgY -= 4;
+
+		}
+		if (imgY <= CargaDatos.entrega.height * -1) {
+			imgY = CargaDatos.entrega.height * -1;
+		}
+
+		if (app.mouseY < 200) {
+			imgY += 4;
+			if (imgY >= CargaDatos.entrega.height) {
+				imgY = CargaDatos.entrega.height;
+			}
+
+		}
+
+		if (app.mouseY > app.height - 200) {
+			imgDosY -= 4;
+
+		}
+		// if (imgDosY <= CargaDatos.entrega.height * -1) {
+		// imgDosY = CargaDatos.entrega.height * -1;
+		// }
+		//
+		if (app.mouseY < 200) {
+			imgDosY += 4;
+			// if (imgDosY >= CargaDatos.entrega.height) {
+			// imgDosY = CargaDatos.entrega.height;
+			// }
+
+		}
 	}
 
 	private void pantallaCuatroImg() {
@@ -182,26 +220,34 @@ public class Logica {
 			if (PApplet.dist(x, y, mundoX, mundoY) < CargaDatos.mundo.height / 2) {
 				pantallas = 5;
 			}
-			
+
 			if (PApplet.dist(x, y, eventoX, eventoY) < CargaDatos.mundo.height / 2) {
 				pantallas = 6;
 			}
-			
-			
+
+			if (PApplet.dist(x, y, 89, 391) < 40) {
+				pantallas = 9;
+			}
 
 		}
-		
-		if (PApplet.dist(x, y, 323, 746) < 40 && pantallas==6)  {
+
+		if (PApplet.dist(x, y, 323, 746) < 40 && pantallas == 6) {
 			pantallas = 7;
 		}
-		
+
+		if (PApplet.dist(x, y, 326, 803) < 80 && pantallas == 9) {
+			pantallas = 10;
+		}
+
 		if (x > 48 && y > 309 && x < 542 && y < 363 && pantallas == 7) {
 			pantallas = 8;
 
 		}
 
-		
-		
+		if (x > 56 && y > 313 && x < 538 && y < 364 && pantallas == 10) {
+			pantallas = 11;
+
+		}
 
 	}
 
