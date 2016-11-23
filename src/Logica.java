@@ -7,10 +7,10 @@ public class Logica {
 	private int pantallas;
 	private PApplet app;
 	private CargaDatos datos;
-	private int alphaU = 100;
+	private int alphaU;
 	private int fondos, huevos;
 	private PVector posBarra;
-	private float barra;
+	private float barra, mundoX, mundoY;
 	private boolean dia;
 
 	public Logica() {
@@ -20,7 +20,10 @@ public class Logica {
 		huevos = 1;
 		dia = true;
 		pantallas = 4;
+		alphaU = 150;
 		barra = app.width - 80;
+		mundoX = 88;
+		mundoY = 937;
 		posBarra = new PVector(barra, 0);
 
 	}
@@ -33,17 +36,17 @@ public class Logica {
 			break;
 
 		case 1:
-			app.tint(255, 80);
+			app.tint(255, alphaU);
 			app.image(CargaDatos.registro, 0, 0);
 			break;
 
 		case 2:
-			app.tint(255, 80);
+			app.tint(255, alphaU);
 			app.image(CargaDatos.regisytoU, 0, 0);
 			break;
 
 		case 3:
-			app.tint(255, 80);
+			app.tint(255, alphaU);
 			app.image(CargaDatos.loginU, 0, 0);
 			break;
 
@@ -78,28 +81,34 @@ public class Logica {
 			if (huevos == 4) {
 				app.image(CargaDatos.huevomal, 325, 755);
 			}
-			app.tint(255, 80);
-
-			app.image(CargaDatos.menu, 88, 77);
-			app.image(CargaDatos.evento, 88, 251);
-			app.image(CargaDatos.tarea, 88, 393);
-			app.image(CargaDatos.mundo, 88, 937);
-			if (dia == false) {
-				app.image(CargaDatos.semana, 483, 77);
-			}
-			if (dia == true) {
-				app.image(CargaDatos.dia, 483, 77);
-			}
-
-			app.shapeMode(PConstants.CENTER);
-			app.shape(CargaDatos.linea, posBarra.x, posBarra.y);
-
+			pantallaCuatroImg();
 			app.imageMode(PConstants.CORNER);
+			break;
+
+		case 5:
+			app.image(CargaDatos.calendarR, 0 - 57, 0);
+
 			break;
 		default:
 			break;
 		}
 
+	}
+
+	private void pantallaCuatroImg() {
+		app.tint(255, alphaU);
+
+		app.image(CargaDatos.menu, 88, 77);
+		app.image(CargaDatos.evento, 88, 251);
+		app.image(CargaDatos.tarea, 88, 393);
+		app.image(CargaDatos.mundo, mundoX, mundoY);
+		app.image(CargaDatos.linea, posBarra.x, posBarra.y);
+		if (dia == false) {
+			app.image(CargaDatos.semana, 483, 77);
+		}
+		if (dia == true) {
+			app.image(CargaDatos.dia, 483, 77);
+		}
 	}
 
 	public void click(float x, float y) {
@@ -123,30 +132,26 @@ public class Logica {
 			if (PApplet.dist(x, y, 483, 77) < 40) {
 				dia = !dia;
 			}
-
-			if (x > (app.width - 80) - CargaDatos.linea.width / 2
-					&& x < (barra) + CargaDatos.linea.width / 2) {
-//				movBarra(x, y);
-				System.out.println("entro");
+			if (PApplet.dist(x, y, mundoX, mundoY) < CargaDatos.mundo.height / 2) {
+				pantallas = 5;
 			}
+
 		}
 
 	}
 
 	public void movBarra(float x, float y) {
-		PVector mouse = new PVector(x,y);
-		PVector dir = PVector.sub(mouse, posBarra);
-		posBarra.add(0,dir.y);
-//		PVector mouse = new PVector(x, y);
-//		PVector mouseD = new PVector(x, y);
-//		PVector dir = PVector.sub(posBarra, mouse);
-//		if (mouseD.y < dir.y) {
-//			posBarra.sub(mouseD);
-//		}
+		if (pantallas == 4) {
+			if (x > (app.width - 80) - CargaDatos.linea.width / 2 && x < (barra) + CargaDatos.linea.width / 2) {
+				PVector mouse = new PVector(x, y);
+				PVector dir = PVector.sub(mouse, posBarra);
+				posBarra.add(0, dir.y);
+			}
+		}
 	}
 
 	public void flechas() {
-
+		System.out.println(app.keyCode);
 		if (app.keyCode == 39) {
 			fondos++;
 			if (fondos > 3) {
@@ -158,6 +163,11 @@ public class Logica {
 			huevos++;
 			if (huevos > 4) {
 				huevos = 1;
+			}
+		}
+		if (pantallas == 5) {
+			if (app.keyCode == 8) {
+//				pantallas =w34 4;
 			}
 		}
 	}

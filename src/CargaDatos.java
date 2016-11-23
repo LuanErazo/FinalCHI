@@ -1,6 +1,5 @@
 import processing.core.PApplet;
 import processing.core.PImage;
-import processing.core.PShape;
 
 public class CargaDatos {
 
@@ -14,7 +13,9 @@ public class CargaDatos {
 	
 	public static PImage huevosuper,huevobien,huevomedio,huevomal;
 	
-	public static PShape linea;
+	public static PImage linea;
+	
+	public static PImage calendarG, calendarR;
 	
 	public CargaDatos() {
 		this.app = MainProcras.app;
@@ -40,6 +41,10 @@ public class CargaDatos {
 		huevomedio = app.loadImage("../data/huevo/huevosad.png");
 		huevomal = app.loadImage("../data/huevo/huevomalmal.png");
 		
-		linea = app.loadShape("../data/linea.svg");
+		linea = app.loadImage("../data/linea.png");
+		
+		calendarG = app.loadImage("../data/calendar/good.png");
+		calendarR = app.loadImage("../data/calendar/regular.png");
+
 	}
 }
