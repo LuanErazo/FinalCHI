@@ -20,7 +20,7 @@ public class Logica {
 		fondos = 1;
 		huevos = 1;
 		dia = true;
-		pantallas = 4;
+		pantallas = 0;
 		alphaU = 150;
 		barra = app.width - 80;
 		mundoX = 88;
@@ -36,7 +36,6 @@ public class Logica {
 	}
 
 	public void pantallas() {
-
 		switch (pantallas) {
 		case 0:
 			app.image(CargaDatos.login, 0, 0);
@@ -103,7 +102,7 @@ public class Logica {
 			if (fondos == 3) {
 				app.image(CargaDatos.calendarM, 0, 0);
 			}
-
+break;
 		case 6:
 			app.image(CargaDatos.entrega, 0, imgY);
 			app.imageMode(PConstants.CENTER);
@@ -220,8 +219,7 @@ public class Logica {
 			if (PApplet.dist(x, y, mundoX, mundoY) < CargaDatos.mundo.height / 2) {
 				pantallas = 5;
 			}
-
-			if (PApplet.dist(x, y, eventoX, eventoY) < CargaDatos.mundo.height / 2) {
+			if (PApplet.dist(x, y, eventoX, eventoY) < 40) {
 				pantallas = 6;
 			}
 
@@ -280,6 +278,10 @@ public class Logica {
 			if (pantallas == 5) {
 				pantallas = 4;
 			}
+		}
+		if (app.keyCode == 65) {
+			imgY = 0;
+			imgDosY = 0;
 		}
 	}
 
