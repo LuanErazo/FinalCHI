@@ -26,6 +26,8 @@ public class MainProcras extends PApplet {
 	public void draw() {
 		// background(35,47,65);
 		log.pantallas();
+		
+		System.out.println(mouseX+ " " + mouseY);
 	}
 
 	@Override

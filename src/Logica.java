@@ -10,7 +10,7 @@ public class Logica {
 	private int alphaU;
 	private int fondos, huevos;
 	private PVector posBarra;
-	private float barra, mundoX, mundoY;
+	private float barra, mundoX, mundoY,eventoX,eventoY,imgY;
 	private boolean dia;
 
 	public Logica() {
@@ -24,6 +24,12 @@ public class Logica {
 		barra = app.width - 80;
 		mundoX = 88;
 		mundoY = 937;
+		
+		imgY=0;
+		
+		eventoX = 88;
+		eventoY = 251;
+		
 		posBarra = new PVector(barra, 0);
 
 	}
@@ -84,6 +90,7 @@ public class Logica {
 			break;
 
 		case 5:
+			app.tint(255, 255);
 			if (fondos == 1) {
 				app.image(CargaDatos.calendarG, 0 - 57, 0);
 			}
@@ -95,6 +102,39 @@ public class Logica {
 			if(fondos==3){
 				app.image(CargaDatos.calendarM, 0, 0);
 			}
+			
+		case 6:
+			app.image(CargaDatos.entrega, 0, imgY);
+			
+			if(app.mouseY>app.height-200){
+				imgY-=4;
+				
+			}
+			if (imgY <= CargaDatos.entrega.height *-1) {
+				imgY = CargaDatos.entrega.height *-1;
+			}
+			
+			if(app.mouseY<200){
+				imgY+=4;
+				if (imgY >= CargaDatos.entrega.height) {
+					imgY = CargaDatos.entrega.height;
+				}
+				
+			}
+			break;
+			
+		case 7:
+			
+			app.image(CargaDatos.recomendacion, 0, 0);
+			break;
+			
+		case 8:
+			app.image(CargaDatos.programado, 0, 0);
+			
+			if(app.frameCount%60*4==0){
+				pantallas=4;
+			}
+			
 			break;
 		default:
 			break;
@@ -106,7 +146,7 @@ public class Logica {
 		app.tint(255, alphaU);
 
 		app.image(CargaDatos.menu, 88, 77);
-		app.image(CargaDatos.evento, 88, 251);
+		app.image(CargaDatos.evento, eventoX, eventoY);
 		app.image(CargaDatos.tarea, 88, 393);
 		app.image(CargaDatos.mundo, mundoX, mundoY);
 		app.image(CargaDatos.linea, posBarra.x, posBarra.y);
@@ -142,8 +182,26 @@ public class Logica {
 			if (PApplet.dist(x, y, mundoX, mundoY) < CargaDatos.mundo.height / 2) {
 				pantallas = 5;
 			}
+			
+			if (PApplet.dist(x, y, eventoX, eventoY) < CargaDatos.mundo.height / 2) {
+				pantallas = 6;
+			}
+			
+			
 
 		}
+		
+		if (PApplet.dist(x, y, 323, 746) < 40 && pantallas==6)  {
+			pantallas = 7;
+		}
+		
+		if (x > 48 && y > 309 && x < 542 && y < 363 && pantallas == 7) {
+			pantallas = 8;
+
+		}
+
+		
+		
 
 	}
 

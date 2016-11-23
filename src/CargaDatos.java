@@ -17,6 +17,8 @@ public class CargaDatos {
 	
 	public static PImage calendarG, calendarR, calendarM;
 	
+	public static PImage entrega,programado,recomendacion;
+	
 	public CargaDatos() {
 		this.app = MainProcras.app;
 		
@@ -47,5 +49,8 @@ public class CargaDatos {
 		calendarR = app.loadImage("../data/calendar/regular.png");
 		calendarM = app.loadImage("../data/calendar/malo.png");
 
+		entrega = app.loadImage("../data/entrega/Entregas.png");
+		programado = app.loadImage("../data/entrega/Programado.png");
+		recomendacion = app.loadImage("../data/entrega/recomendaciones.png");
 	}
 }
