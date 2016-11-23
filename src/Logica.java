@@ -165,7 +165,7 @@ public class Logica {
 		}
 		if (pantallas == 5) {
 			if (app.keyCode == 8) {
-//				pantallas =w34 4;
+				pantallas = 4;
 			}
 		}
 	}
